@@ -24,7 +24,6 @@ def welcome():
 @app.route('/generate', methods=['POST'])
 def generate():
     string = ''
-    rhyme = request.form['rhyme']
     keywords = request.form['keywords']
     subject = request.form['subject']
     
@@ -35,10 +34,9 @@ def generate():
         SPECIAL_TOKENS['sep_token'] + kw + SPECIAL_TOKENS['sep_token']
          
     generated = torch.tensor(tokenizer.encode(prompt)).unsqueeze(0)
-    device = torch.device("cuda")
-    generated = generated.to(device)
+    # device = torch.device("cuda") # comment if no cuda
+    # generated = generated.to(device) # comment if no cuda
 
-    print('generate start')
     model.eval()
     # Top-p (nucleus) text generation (10 samples):
     sample_outputs = model.generate(generated, 
@@ -52,7 +50,6 @@ def generate():
                                     num_return_sequences=n_verse
                                 )
 
-    print('generate end')
     for i, sample_output in enumerate(sample_outputs):
         text = tokenizer.decode(sample_output, skip_special_tokens=True)
         a = len(rhyme) + len(','.join(keywords))

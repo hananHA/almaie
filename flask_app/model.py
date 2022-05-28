@@ -91,8 +91,8 @@ def get_model(tokenizer, special_tokens=None, load_model_path=None):
         # Special tokens added, model needs to be resized accordingly
         model.resize_token_embeddings(len(tokenizer))
 
-    if load_model_path: # map_location=torch.device('cpu') if no cuda
-        model.load_state_dict(torch.load(load_model_path))
+    if load_model_path: # use map_location=torch.device('cpu') if no cuda
+        model.load_state_dict(torch.load(load_model_path, map_location=torch.device('cpu')))
 
-    model.cuda()
+    # model.cuda() # comment if no cuda
     return model
