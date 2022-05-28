@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Tajawal&display=swap');
+
+html, body {
+  @apply font-semibold;
+  font-family: 'Tajawal', sans-serif;
+
+}
+
+.main-layout {
+  @apply grid grid-cols-1 lg:grid-cols-10 p-3 lg:p-20 lg:pt-3 gap-10;
+}
+
+.main-layout__start {
+  @apply lg:col-span-8;
+}
+
+.main-layout__end {
+  @apply lg:col-span-2;
+}
+
+.input {
+  @apply mr-3 text-sm text-zinc-500 rounded-full appearance-none font-semibold border-2 p-3 focus:outline-none;
+  background-color: rgba(165, 148, 249, 0.1);
+  border-color: #FFA400;
+}
+
+.prefrences {
+  @apply flex flex-row gap-10;
+}
+
+.top-section {
+  @apply h-64;
+}
+
+.title {
+  @apply text-9xl;
+}
+
+.button {
+  @apply rounded-full text-white p-3 w-32 h-fit;
+  background-color: #7371FC;
+}
+
+.generate-section {
+  @apply mt-10 flex flex-row gap-10;
+}
+
+.textarea {
+  @apply mr-3 text-sm text-zinc-500 rounded-lg appearance-none font-semibold border-2 p-3 focus:outline-none;
+  background-color: rgba(165, 148, 249, 0.1);
+  border-color: #FFA400;
+  resize: none;
+}

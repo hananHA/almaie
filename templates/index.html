@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <title>Almaie AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+</head>
+<body>
+    <div class="main-layout">
+            <div class="main-layout__start">
+                <div class="top-section">
+                    <img src="{{url_for('static', filename='logo.svg')}}" style="height:100%">
+                </div>
+                <form action="/generate" method="post">
+                <div class="prefrences">
+                    <div class="items-center h-full">
+                      <label>{{ "القافية" }}:</label>
+                      <input
+                        class="input"
+                        type="text"
+                        id="rhyme"
+                        name="rhyme"
+                      />
+                    </div>
+                    <div class="items-center h-full">
+                        <label">{{ "الكلمات الرئيسية" }}:</label>
+                        <input
+                          class="input"
+                          type="text"
+                          id="keywords"
+                          name="keywords"
+                        />
+                      </div>
+                      <div class="items-center h-full">
+                        <label>{{ "الموضوع" }}:</label>
+                        <input
+                          class="input"
+                          type="text"
+                          id="subject"
+                          name="subject"
+                        />
+                      </div>
+                </div>
+                <div class="generate-section">
+                    <input type="submit" value="أنشئ" class="button"></input>
+                    <textarea rows="10" cols="100" class="textarea">{{ result }}</textarea>
+                </div>
+            </form>
+              </div>
+              
+        <div class="main-layout__end">
+        </div>
+      </div>
+</body>
+</html>

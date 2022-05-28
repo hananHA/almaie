@@ -1,0 +1,3 @@
+flask
+transformers
+pytorch torchvision torchaudio cudatoolkit=11.3
