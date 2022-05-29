@@ -92,7 +92,7 @@ def get_model(tokenizer, special_tokens=None, load_model_path=None):
         model.resize_token_embeddings(len(tokenizer))
 
     if load_model_path: # use map_location=torch.device('cpu') if no cuda
-        model.load_state_dict(torch.load(load_model_path, map_location=torch.device('cpu')))
+        model.load_state_dict(torch.load(load_model_path))
 
-    # model.cuda() # comment if no cuda
+    model.cuda() # comment if no cuda
     return model
